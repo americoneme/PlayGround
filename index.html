@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#11151a" />
+  <title>Templar's Oath — Ashes of Acre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+  <script type="module" src="game.js"></script>
+</head>
+<body>
+  <main id="game">
+    <canvas id="scene" aria-label="Three dimensional medieval beat-em-up game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">✠</div><div><span class="eyebrow">A BEAT-’EM-UP CHRONICLE</span><strong>ASHES <i>OF</i> ACRE</strong></div></div>
+      <div class="chapter"><span class="live-dot"></span><span id="chapterText">THE OLD QUARTER</span><b>·</b><span id="waveText">WAVE 01</span></div>
+      <button class="icon-button" id="soundButton" aria-label="Toggle sound">♫ <span>SOUND</span></button>
+    </header>
+
+    <section class="hud" aria-label="Player status">
+      <div class="hero-card"><div class="avatar">♜</div><div class="hero-info"><span class="eyebrow">THE PALE KNIGHT</span><strong>GIDEON</strong><div class="health-track"><div id="healthFill" class="health-fill"></div></div></div><div class="health-number"><b id="healthNumber">100</b><small>VIT</small></div></div>
+      <div class="score-card"><span class="eyebrow">ENEMIES SLAIN</span><strong id="score">000</strong><span class="score-sub">✦ &nbsp; <b id="combo">x1</b> STREAK</span></div>
+    </section>
+
+    <div class="objective"><span class="objective-icon">✦</span><span><b>OBJECTIVE</b><small id="objectiveText">Break through the Templar patrol</small></span></div>
+    <div id="toast" class="toast" aria-live="polite"></div>
+
+    <div class="bottom-ui"><div class="controls-hint"><span class="keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span><span>MOVE</span><i></i><kbd>J</kbd><span>STRIKE</span><i></i><kbd>K</kbd><span>DODGE</span></div><div class="location">ACRE, 1187 <span>—</span> AFTER VESPERS</div></div>
+
+    <div id="intro" class="overlay intro-overlay">
+      <div class="intro-panel"><div class="seal">✠</div><div class="eyebrow">THE HOLY LAND IS BURNING</div><h1>ASHES<br><em>OF ACRE</em></h1><p>A lone knight. A city turned against him.<br>Cut through the order that betrayed its oath.</p><div class="intro-rule"><span></span> CHAPTER I · THE OLD QUARTER <span></span></div><button id="playButton" class="primary-button">ENTER THE FRAY <b>→</b></button><div class="intro-note">WASD to move &nbsp;·&nbsp; J to strike &nbsp;·&nbsp; K to evade</div></div>
+    </div>
+
+    <div id="gameOver" class="overlay hidden"><div class="end-panel"><div class="eyebrow">THE CITY REMEMBERS</div><h2 id="endTitle">FALLEN IN ACRE</h2><p id="endCopy">The oath is not yet fulfilled.</p><button id="restartButton" class="primary-button">RISE AGAIN <b>↻</b></button></div></div>
+
+    <div class="touch-controls" aria-label="Touch controls"><div class="dpad"><button data-move="up">▲</button><div><button data-move="left">◀</button><button data-move="down">▼</button><button data-move="right">▶</button></div></div><div class="touch-actions"><button id="touchDodge">DODGE</button><button id="touchAttack">STRIKE</button></div></div>
+    <div id="loading" class="loading"><span class="spinner"></span> RAISING THE CITY...</div>
+  </main>
+</body>
+</html>
